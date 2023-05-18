@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Skills</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1>My skills</h1>
-    <ul>
-        <% skills.forEach(function(s) { %>
-            <li>
-                <a href="/skills/<%= s.id %>"><%= s.name %></a>
-            </li>
-        <% }) %>
-    </ul>
-  </body>
-</html>
+<%- include('../partials/header') %>
+    
+  <ul>
+      <% skills.forEach(function(s) { %>
+        <form action="/skills/<%= s.id %>?_method=DELETE" method="POST">
+          <button type="sumbit">X</button>
+        </form>
+        <li>
+            <a href="/skills/<%= s.id %>"><%= s.name %></a><br>
+        </li>
+      <% }) %>
+  </ul>
+  <a href="/skills/new">Add New Skill</a>
+
+<%- include('../partials/footer') %>
